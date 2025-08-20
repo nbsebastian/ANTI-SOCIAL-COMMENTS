@@ -1,11 +1,3 @@
-# Group4updated_sess.py
-# Toxic Comment Detection — stylish, interactive, leakage-free, with session_state + full evaluation
-# Python 3.9 compatible (uses typing.Optional, no union '|')
-
-# Group4updated_sess.py
-# Toxic Comment Detection — stylish, interactive, leakage-free, with session_state + full evaluation
-# Python 3.9 compatible (uses typing.Optional, no union '|')
-
 import re
 import string
 from collections import Counter
@@ -47,6 +39,7 @@ try:
     WORDCLOUD_AVAILABLE = True
 except Exception:
     WORDCLOUD_AVAILABLE = False
+
 
 # =========================
 # Page config (+ creative menu)
@@ -169,7 +162,7 @@ def init_state():
 init_state()
 
 
-# --- Data loading & preprocessing ---
+# Data loading & preprocessing
 
 stop_words = set(stopwords.words("english"))
 stop_words.update({'article','wikipedia','page','edit','talk','user','please','thanks','thank'})
@@ -251,7 +244,6 @@ def preprocess_into_state():
 
     st.subheader("Sample of Cleaned Test Data")
     st.dataframe(te[["cleaned_text"]].sample(min(10, len(te)), random_state=42))
-
 
 
 # =========================
@@ -680,7 +672,7 @@ def page_preprocess():
     tr = st.session_state.clean_train
     te = st.session_state.clean_test
 
-
+  
     st.success("Saved cleaned_train.csv & cleaned_test.csv")
 
 def page_modeling():
